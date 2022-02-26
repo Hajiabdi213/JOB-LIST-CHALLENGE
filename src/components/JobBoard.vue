@@ -28,7 +28,7 @@ type allMyProps={
     
 
 <!-- <div className="flex bg-white shadow-md m-4 p-6 rounded" > -->
-<div v-bind:class = "(featured)?'flex md:flex-row bg-white border-l-4 border-teal-500 border-solid shadow-md mx-10 my-16 p-6 rounded  flex-col':'flex md:flex-row bg-white shadow-md mx-10 my-16 p-6 rounded flex-col  '" >
+<div id="jobDiv" v-bind:class = "(featured)?'flex md:flex-row bg-white border-l-4 border-teal-500 border-solid shadow-md mx-10 my-16 p-6 rounded  flex-col':'flex md:flex-row bg-white shadow-md mx-10 my-16 p-6 rounded flex-col  '" >
     <!-- image -->
     <div class="flex items-center">
             <img class=" rounded-3xl w-20   -mt-16 md:m-0" v-bind:src="logoImg" alt="">
@@ -56,10 +56,10 @@ type allMyProps={
         <!-- <h1>{{languages}}</h1>
         <h1>{{tools}}</h1> -->
         
-        <span class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2">{{role}}</span>
-        <span class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2">{{level}}</span>
-        <span class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2" v-for="language in languages">{{language}}</span>
-        <span class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2" v-for="tool in tools">{{tool}}</span>
+        <span @click="$emit('filteringData', role)" class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2 hover:bg-teal-500 hover:text-white transition duration-300 cursor-pointer">{{role}}</span>
+        <span @click="$emit('filteringData', level)" class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2 hover:text-white transition duration-300 cursor-pointer  hover:bg-teal-500">{{level}}</span>
+        <span @click="$emit('filteringData', language)" class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2 hover:text-white transition duration-300 cursor-pointer hover:bg-teal-500" v-for="language in languages">{{language}}</span>
+        <span @click="$emit('filteringData',tool)" class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2 hover:text-white transition duration-300 cursor-pointer  hover:bg-teal-500" v-for="tool in tools">{{tool}}</span>
 
     </div>
    
