@@ -63,14 +63,6 @@ defineProps<allMyProps>();
     >
       <!-- <h1>{{languages}}</h1>
         <h1>{{tools}}</h1> -->
-<<<<<<< HEAD
-=======
-        
-        <span @click="$emit('filteringData', role)" class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2 hover:bg-teal-500 hover:text-white transition duration-300 cursor-pointer">{{role}}</span>
-        <span @click="$emit('filteringData', level)" class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2 hover:text-white transition duration-300 cursor-pointer  hover:bg-teal-500">{{level}}</span>
-        <span @click="$emit('filteringData', language)" class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2 hover:text-white transition duration-300 cursor-pointer hover:bg-teal-500" v-for="language in languages">{{language}}</span>
-        <span @click="$emit('filteringData',tool)" class="text-teal-500 bg-teal-100 font-bold p-2 rounded m-2 hover:text-white transition duration-300 cursor-pointer  hover:bg-teal-500" v-for="tool in tools">{{tool}}</span>
->>>>>>> f900d31f9f11a2e01866d3f4b7cfc8c4a2ea3218
 
       <span @click="$emit('filteringData', role)" class="filter-button">{{
         role

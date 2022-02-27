@@ -9,81 +9,104 @@ let jobsArray: any = [];
 //adding data from the JSON to the jobs array
 for (const job of jobs) {
   jobsArray.push(job);
-  
 }
-
 
 //filtering
 
-
 function filteringData(clickedItem: string) {
-  const jobDiv = document.querySelectorAll("#jobDiv");
+  //CREATING TOP FILTER BAR
+  const jobDivElements = document.querySelectorAll("#jobDiv");
   const filteredBoxText = document.createElement("p");
   const closeFilterIcon = document.createElement("button");
-  const clearAllButton=document.createElement("button")
-  // clearAllButton.className="clear-all-button text-teal-500 hover:underline transition absolute right-14"
 
-  // clearAllButton.textContent="clear"
-  closeFilterIcon.textContent = "X";
-  closeFilterIcon.className =
-    "close-filter-icon text-white font-bold bg-teal-500 p-2 -mr-2 rounded-r";
+
+
+
   filteredBoxText.textContent = clickedItem;
 
   filteredBoxText.className =
-    "text-teal-500 bg-teal-100 font-bold px-2 rounded m-2 flex gap-2 items-center";
+    "filter-text-box text-teal-500 bg-teal-100 font-bold px-2 rounded m-2 flex gap-2 items-center";
   const filterBox = document.querySelector("#filterBox");
   if (filterBox?.textContent?.includes(clickedItem)) {
     return;
   }
-  
 
-  filteredBoxText.append(closeFilterIcon);
+  // filteredBoxText.append(closeFilterIcon);
   filterBox?.append(filteredBoxText);
 
-  jobDiv.forEach((div) => {
-    // console.log(div)
 
-    //removing unwanted Jobs to filter
-    if (!div.textContent.includes(clickedItem)) {
-      div.classList.add("remove-jobs");
-
+//functionality
+ const filters=document.querySelectorAll('.filter-text-box');
+ for(const filter of filters){
+  
+  for(const jobDiv of jobDivElements){
+    if(!(jobDiv.textContent.includes(filter.textContent))){
+      jobDiv.style.display="none";
+      
     }
-
     
-    //close filter functionality
+  }
+ }
 
+
+
+
+  
+ if(!(filterBox.textContent.includes("CLEAR"))){
+  
+  const clearAllButton=document.createElement('button');
+  clearAllButton.textContent="CLEAR";
+  clearAllButton.className="clear-all-button text-teal-500 hover:underline transition absolute right-14";
+
+  filterBox.append(clearAllButton);
+ clearAllButton.addEventListener('click',()=>{
+   clearAllButton.remove()
+   for (const jobDiv of jobDivElements){
+     jobDiv.style.display="flex";
     
-    closeFilterIcon.addEventListener("click", (e) => {
-      
-      div.classList.remove("remove-jobs");
-     
+    
 
-       const closeFilterIconButton=document.querySelectorAll('.close-filter-icon')
- 
-   
       
-      closeFilterIcon.parentElement?.remove();
-      return
-    });
-  });
+    const filters= document.querySelectorAll(".filter-text-box")
+
+    for(const filter of filters){
+      // clearAllButton.remove()
+        filter.remove()
+    }
+   }
+ })
+  
+
 }
 
 
+  
+
+  
+}
 </script>
 
 <template>
   <header class="bg-teal-500 mb-12">
-    <img class="hidden md:block w-full" src="/images/bg-header-desktop.svg" alt="" />
-    <img class=" md:hidden w-full h-48" src="/images/bg-header-mobile.svg" alt="" />
+    <img
+      class="hidden md:block w-full"
+      src="/images/bg-header-desktop.svg"
+      alt=""
+    />
+    <img
+      class="md:hidden w-full h-48"
+      src="/images/bg-header-mobile.svg"
+      alt=""
+    />
   </header>
 
   <!-- filter box -->
   <div
     id="filterBox"
-    class="flex md:flex-row items-center bg-white shadow-md mx-10 rounded flex-wrap"
+    class="flex md:flex-row items-center bg-white shadow-md mx-10 rounded flex-wrap items-center"
   >
-  
-  
+
+ 
   </div>
 
   <!-- all jobs go here -->
@@ -103,7 +126,6 @@ function filteringData(clickedItem: string) {
     :featured="job.featured"
     @filteringData="filteringData"
   >
-    <!-- <img src="./assets/images/insure.svg" alt=""> -->
-    <!-- {{job.company}} -->
+   
   </JobBoard>
 </template>
