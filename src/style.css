@@ -5,6 +5,7 @@
 
 .remove-jobs{
     display: none;
+
 }
 
 
@@ -39,4 +40,5 @@
 
 .isFeaturedStyle{
     @apply bg-gray-800 text-white text-sm m-2 py-1 px-2 rounded-full font-semibold uppercase
+
 }
