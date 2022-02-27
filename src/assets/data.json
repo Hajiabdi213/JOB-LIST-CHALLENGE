@@ -1,6 +1,21 @@
 [
   {
-    "id": 1,
+    
+    "company": "Tiigsi Technology",
+    "logo": "images/tiigsi.jpg",
+    "isNew": true,
+    "featured": true,
+    "position": "Full Stack Developer",
+    "role": "Fullstack",
+    "level": "Junior",
+    "postedAt": "30m ago",
+    "contract": "Full Time",
+    "location": "Hargaysa",
+    "languages": ["JavaScript","C#"],
+    "tools": ["ASP", "Vue"]
+  },
+  {
+    
     "company": "Photosnap",
     "logo": "images/photosnap.svg",
     "isNew": true,
@@ -15,7 +30,7 @@
     "tools": []
   },
   {
-    "id": 2,
+    
     "company": "Manage",
     "logo": "images/manage.svg",
     "isNew": true,
@@ -30,7 +45,7 @@
     "tools": ["React"]
   },
   {
-    "id": 3,
+    
     "company": "Account",
     "logo": "images/account.svg",
     "isNew": true,
@@ -45,7 +60,7 @@
     "tools": ["React", "Sass"]
   },
   {
-    "id": 4,
+    
     "company": "MyHome",
     "logo": "images/myhome.svg",
     "isNew": false,
@@ -60,11 +75,11 @@
     "tools": []
   },
   {
-    "id": 5,
+    
     "company": "Loop Studios",
     "logo": "images/loop-studios.svg",
     "isNew": false,
-    "featured": false,
+    "featured": true,
     "position": "Software Engineer",
     "role": "Fullstack",
     "level": "Midweight",
@@ -75,7 +90,7 @@
     "tools": ["Ruby", "Sass"]
   },
   {
-    "id": 6,
+    
     "company": "FaceIt",
     "logo": "images/faceit.svg",
     "isNew": false,
@@ -90,7 +105,7 @@
     "tools": ["RoR"]
   },
   {
-    "id": 7,
+    
     "company": "Shortly",
     "logo": "images/shortly.svg",
     "isNew": false,
@@ -105,7 +120,7 @@
     "tools": ["Sass"]
   },
   {
-    "id": 8,
+    
     "company": "Insure",
     "logo": "images/insure.svg",
     "isNew": false,
@@ -120,7 +135,7 @@
     "tools": ["Vue", "Sass"]
   },
   {
-    "id": 9,
+    
     "company": "Eyecam Co.",
     "logo": "images/eyecam-co.svg",
     "isNew": false,
@@ -135,7 +150,7 @@
     "tools": ["Django"]
   },
   {
-    "id": 10,
+    
     "company": "The Air Filter Company",
     "logo": "images/the-air-filter-company.svg",
     "isNew": false,
@@ -149,4 +164,6 @@
     "languages": ["JavaScript"],
     "tools": ["React", "Sass"]
   }
+  
+ 
 ]
