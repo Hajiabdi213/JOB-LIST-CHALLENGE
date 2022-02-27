@@ -19,9 +19,6 @@ function filteringData(clickedItem: string) {
   const filteredBoxText = document.createElement("p");
   const closeFilterIcon = document.createElement("button");
 
-
-
-
   filteredBoxText.textContent = clickedItem;
 
   filteredBoxText.className =
@@ -31,58 +28,41 @@ function filteringData(clickedItem: string) {
     return;
   }
 
-  // filteredBoxText.append(closeFilterIcon);
   filterBox?.append(filteredBoxText);
 
-
-//functionality
- const filters=document.querySelectorAll('.filter-text-box');
- for(const filter of filters){
-  
-  for(const jobDiv of jobDivElements){
-    if(!(jobDiv.textContent.includes(filter.textContent))){
-      jobDiv.style.display="none";
-      
+  //functionality
+  const filters = document.querySelectorAll(".filter-text-box");
+  for (const filter of filters) {
+    for (const jobDiv of jobDivElements) {
+      if (!jobDiv.textContent.includes(filter.textContent)) {
+        jobDiv.style.display = "none";
+      }
     }
-    
   }
- }
 
 
+//checking if the Clear ALL button was already existed or not
+  if (!filterBox.textContent.includes("CLEAR")) {
+    const clearAllButton = document.createElement("button");
+    clearAllButton.textContent = "CLEAR";
+    clearAllButton.className =
+      "clear-all-button text-teal-500 hover:underline transition absolute right-14";
+// adding clear All Button 
+    filterBox.append(clearAllButton);
+    clearAllButton.addEventListener("click", () => {
+      clearAllButton.remove();
+      for (const jobDiv of jobDivElements) {
+        jobDiv.style.display = "flex";
 
+        const filters = document.querySelectorAll(".filter-text-box");
 
-  
- if(!(filterBox.textContent.includes("CLEAR"))){
-  
-  const clearAllButton=document.createElement('button');
-  clearAllButton.textContent="CLEAR";
-  clearAllButton.className="clear-all-button text-teal-500 hover:underline transition absolute right-14";
-
-  filterBox.append(clearAllButton);
- clearAllButton.addEventListener('click',()=>{
-   clearAllButton.remove()
-   for (const jobDiv of jobDivElements){
-     jobDiv.style.display="flex";
-    
-    
-
-      
-    const filters= document.querySelectorAll(".filter-text-box")
-
-    for(const filter of filters){
-      // clearAllButton.remove()
-        filter.remove()
-    }
-   }
- })
-  
-
-}
-
-
-  
-
-  
+        for (const filter of filters) {
+          // clearAllButton.remove()
+          filter.remove();
+        }
+      }
+    });
+  }
 }
 </script>
 
@@ -104,10 +84,7 @@ function filteringData(clickedItem: string) {
   <div
     id="filterBox"
     class="flex md:flex-row items-center bg-white shadow-md mx-10 rounded flex-wrap items-center"
-  >
-
- 
-  </div>
+  ></div>
 
   <!-- all jobs go here -->
   <JobBoard
@@ -126,6 +103,5 @@ function filteringData(clickedItem: string) {
     :featured="job.featured"
     @filteringData="filteringData"
   >
-   
   </JobBoard>
 </template>
